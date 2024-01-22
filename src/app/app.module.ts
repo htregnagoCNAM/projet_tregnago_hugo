@@ -1,12 +1,15 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { InscriptionComponent } from './inscription/inscription.component';
 import { CatalogueComponent } from './catalogue/catalogue.component';
 import { PanierComponent } from './panier/panier.component';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { ApiService } from './api.service';
+import { ApiHttpInterceptor } from './http-interceptor';
 
 @NgModule({
   declarations: [
@@ -18,9 +21,13 @@ import { PanierComponent } from './panier/panier.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: ApiHttpInterceptor, multi: true },
+    ApiService,],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
