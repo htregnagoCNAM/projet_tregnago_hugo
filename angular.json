@@ -30,8 +30,13 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
-            ],
+              "src/styles.scss",
+              "src/app/app.component.scss",
+              "src/app/login/login.component.scss",
+              "src/app/inscription/inscription.component.scss",
+              "src/app/catalogue/catalogue.component.scss",
+              "src/app/panier/panier.component.scss"
+            ],            
             "scripts": []
           },
           "configurations": {
@@ -93,7 +98,12 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.scss",
+              "src/app/app.component.scss",
+              "src/app/login/login.component.scss",
+              "src/app/inscription/inscription.component.scss",
+              "src/app/catalogue/catalogue.component.scss",
+              "src/app/panier/panier.component.scss"
             ],
             "scripts": []
           }

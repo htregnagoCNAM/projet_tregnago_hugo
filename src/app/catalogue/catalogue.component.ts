@@ -71,4 +71,8 @@ export class CatalogueComponent implements OnInit {
     this.panierService.ajouterAuPanier(produit);
   }
 
+  getImageUrl(imageUrl: string): string {
+    return imageUrl || 'https://crawfordroofing.com.au/wp-content/uploads/2018/04/No-image-available.jpg'; // Remplacez 'lien_vers_image_generique.jpg' par votre URL d'image générique.
+  }
+
 }

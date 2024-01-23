@@ -1,0 +1,37 @@
+/* inscription.component.scss */
+
+form {
+    max-width: 400px;
+    margin: 0 auto;
+  
+    label {
+      display: block;
+      margin-bottom: 5px;
+    }
+  
+    input,
+    select {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 10px;
+    }
+  
+    button {
+      background-color: #4CAF50;
+      color: #fff;
+      padding: 10px;
+      border: none;
+      cursor: pointer;
+    }
+  
+    .erreur-inscription {
+      color: #ff0000;
+    }
+  
+    h3 {
+      color: #4CAF50;
+    }
+  }
+  
+  /* Ajoutez d'autres styles selon vos préférences */
+  

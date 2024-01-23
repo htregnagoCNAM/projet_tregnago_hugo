@@ -1,0 +1,49 @@
+/* catalogue.component.scss */
+
+div {
+    margin-bottom: 20px;
+  
+    input {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 20px;
+    }
+  
+    .produits {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 20px;
+  
+      .produit {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+  
+        img {
+          max-width: 100%;
+          height: auto;
+          margin-bottom: 10px;
+        }
+  
+        h3 {
+          color: #333;
+          margin-bottom: 5px;
+        }
+  
+        p {
+          margin-bottom: 10px;
+        }
+  
+        button {
+          background-color: #4CAF50;
+          color: #fff;
+          padding: 10px;
+          border: none;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+  
+  /* Ajoutez d'autres styles selon vos préférences */
+  

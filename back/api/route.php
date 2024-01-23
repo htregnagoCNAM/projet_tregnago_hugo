@@ -1,22 +1,20 @@
 <?php
 
-	$app->get('/api/hello/{name}', 'hello');
+$app->options('/api/catalogue', 'optionsCatalogue');
 
-	$app->options('/api/catalogue', 'optionsCatalogue' );
+$app->options('/api/utilisateur', 'optionsUtilisateur');
 
-	// API Nécessitant un Jwt valide
-	$app->get('/api/catalogue/{filtre}', 'getSearchCalatogue' );
+// APi d'authentification générant un JWT
+$app->post('/api/utilisateur/login', 'postLogin');
 
-	// API Nécessitant un Jwt valide
-	$app->get('/api/catalogue', 'getCatalogue');
+// APi pour s'inscrire, dans la ignoreList
+$app->post('/api/utilisateur/inscription', 'postInscription');
 
-	$app->options('/api/utilisateur', 'optionsUtilisateur');
+// API Nécessitant un Jwt valide
+$app->get('/api/utilisateur', 'getUtilisateur');
 
-	// API Nécessitant un Jwt valide
-	$app->get('/api/utilisateur', 'getUtilisateur');
+// API Nécessitant un Jwt valide
+$app->get('/api/fullCatalogue', 'getFullCatalogue');
 
-	// APi d'authentification générant un JWT
-	$app->post('/api/utilisateur/login', 'postLogin');
-	
-	
-
+// API Nécessitant un Jwt valide
+$app->get('/api/catalogue/{filtre}', 'getSearchCatalogue');
