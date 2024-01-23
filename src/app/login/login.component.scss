@@ -1,36 +1,35 @@
-/* login.component.scss */
-
 div {
     max-width: 400px;
     margin: 0 auto;
-  
+
     label {
-      display: block;
-      margin-bottom: 5px;
+        display: block;
+        margin-bottom: 5px;
     }
-  
+
     input {
-      width: 100%;
-      padding: 8px;
-      margin-bottom: 10px;
+        width: 100%;
+        padding: 8px;
+        margin-bottom: 10px;
     }
-  
+
     button {
-      background-color: #4CAF50; /* Couleur de fond du bouton */
-      color: #fff; /* Couleur du texte du bouton */
-      padding: 10px;
-      border: none;
-      cursor: pointer;
+        background-color: #4CAF50;
+        /* Couleur de fond du bouton */
+        color: #fff;
+        /* Couleur du texte du bouton */
+        padding: 10px;
+        border: none;
+        cursor: pointer;
     }
-  
+
     .erreur-connexion {
-      color: #ff0000; /* Couleur du texte d'erreur */
+        color: #ff0000;
+        /* Couleur du texte d'erreur */
     }
-  
+
     h3 {
-      color: #4CAF50; /* Couleur du texte de succès */
+        color: #4CAF50;
+        /* Couleur du texte de succès */
     }
-  }
-  
-  /* Ajoutez d'autres styles selon vos préférences */
-  
+}

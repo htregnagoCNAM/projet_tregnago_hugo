@@ -18,7 +18,7 @@ export class LoginComponent {
   erreurConnexion: string = '';
 
   constructor(private apiService: ApiService,
-    private authService: AuthenticationService) {}
+    private authService: AuthenticationService) { }
 
   connexion() {
     this.apiService.loginClient(this.login, this.password).subscribe(

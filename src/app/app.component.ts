@@ -10,10 +10,9 @@ export class AppComponent {
   title = 'projet_tregnago_hugo';
   isUserLoggedIn: boolean = false;
 
-  constructor(private authService: AuthenticationService) {}
+  constructor(private authService: AuthenticationService) { }
 
   ngOnInit() {
-    // Abonnez-vous aux changements d'état d'authentification
     this.authService.isLoggedIn$.subscribe((isLoggedIn) => {
       this.isUserLoggedIn = isLoggedIn;
     });

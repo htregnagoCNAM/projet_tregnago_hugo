@@ -1,49 +1,48 @@
 <div *ngIf="!inscriptionReussie">
-    <form>
+  <form>
 
-      <label for="login">Login : </label>
-      <input [(ngModel)]="nouveauClient.login" name="login" required pattern="[a-zA-Z0-9]{1,20}" /><br />
+    <label for="login">Login : </label>
+    <input [(ngModel)]="nouveauClient.login" name="login" required pattern="[a-zA-Z0-9]{1,20}" /><br />
 
-      <label for="nom">Nom : </label>
-      <input [(ngModel)]="nouveauClient.nom" name="nom" required /><br />
-  
-      <label for="prenom">Prénom : </label>
-      <input [(ngModel)]="nouveauClient.prenom" name="prenom" required /><br />
-  
-      <label for="adresse">Adresse : </label>
-      <input [(ngModel)]="nouveauClient.adresse" name="adresse" required /><br />
-  
-      <label for="codePostal">Code Postal : </label>
-      <input [(ngModel)]="nouveauClient.codePostal" name="codePostal" required pattern="\d{5}" maxlength="5" /><br />
-  
-      <label for="ville">Ville : </label>
-      <input [(ngModel)]="nouveauClient.ville" name="ville" required /><br />
-  
-      <label for="email">Email : </label>
-      <input [(ngModel)]="nouveauClient.email" name="email" type="email" required /><br />
-  
-      <label for="sexe">Sexe : </label>
-      <select [(ngModel)]="nouveauClient.sexe" name="sexe" required>
-        <option value="M">Homme</option>
-        <option value="F">Femme</option>
-      </select><br />
-  
-      <label for="telephone">Téléphone : </label>
-      <input [(ngModel)]="nouveauClient.telephone" name="telephone" required pattern="\d*" /><br />
-  
-      <label for="password">Mot de passe : </label>
-      <input [(ngModel)]="nouveauClient.password" name="password" type="password" required /><br />
-  
-      <br />
-      <button type="button" (click)="inscription()">Inscription</button>
-    </form>
-  </div>
-  
-  <div *ngIf="inscriptionReussie">
-    <h3>Inscription réussie !</h3>
-  </div>
-  
-  <div *ngIf="erreurInscription" class="erreur-inscription">
-    {{ erreurInscription }}
-  </div>
-  
+    <label for="nom">Nom : </label>
+    <input [(ngModel)]="nouveauClient.nom" name="nom" required /><br />
+
+    <label for="prenom">Prénom : </label>
+    <input [(ngModel)]="nouveauClient.prenom" name="prenom" required /><br />
+
+    <label for="adresse">Adresse : </label>
+    <input [(ngModel)]="nouveauClient.adresse" name="adresse" required /><br />
+
+    <label for="codePostal">Code Postal : </label>
+    <input [(ngModel)]="nouveauClient.codePostal" name="codePostal" required pattern="\d{5}" maxlength="5" /><br />
+
+    <label for="ville">Ville : </label>
+    <input [(ngModel)]="nouveauClient.ville" name="ville" required /><br />
+
+    <label for="email">Email : </label>
+    <input [(ngModel)]="nouveauClient.email" name="email" type="email" required /><br />
+
+    <label for="sexe">Sexe : </label>
+    <select [(ngModel)]="nouveauClient.sexe" name="sexe" required>
+      <option value="M">Homme</option>
+      <option value="F">Femme</option>
+    </select><br />
+
+    <label for="telephone">Téléphone : </label>
+    <input [(ngModel)]="nouveauClient.telephone" name="telephone" required pattern="\d*" /><br />
+
+    <label for="password">Mot de passe : </label>
+    <input [(ngModel)]="nouveauClient.password" name="password" type="password" required /><br />
+
+    <br />
+    <button type="button" (click)="inscription()">Inscription</button>
+  </form>
+</div>
+
+<div *ngIf="inscriptionReussie">
+  <h3>Inscription réussie !</h3>
+</div>
+
+<div *ngIf="erreurInscription" class="erreur-inscription">
+  {{ erreurInscription }}
+</div>

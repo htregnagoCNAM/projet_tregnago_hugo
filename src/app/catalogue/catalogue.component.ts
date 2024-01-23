@@ -1,5 +1,3 @@
-// catalogue.component.ts
-
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../api.service';
 import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
@@ -19,7 +17,7 @@ export class CatalogueComponent implements OnInit {
   constructor(private apiService: ApiService,
     private panierService: PanierService,
     private router: Router,
-    private route: ActivatedRoute) {}
+    private route: ActivatedRoute) { }
 
   private filtreSubject = new Subject<string>();
 
@@ -55,7 +53,7 @@ export class CatalogueComponent implements OnInit {
       queryParamsHandling: 'merge',
     });
   }
-  
+
   getProduits(filtre: string) {
     this.apiService.getProduits(filtre).subscribe(
       (data) => {
@@ -66,7 +64,7 @@ export class CatalogueComponent implements OnInit {
       }
     );
   }
-  
+
   ajouterAuPanier(produit: any) {
     this.panierService.ajouterAuPanier(produit);
   }

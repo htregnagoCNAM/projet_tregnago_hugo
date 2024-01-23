@@ -1,12 +1,12 @@
 <div *ngIf="!cnx">
-    <label for="login">login (hugo) : </label>
-    <input [(ngModel)]="login" /><br />
-    
-    <label for="password">password (gohu) : </label>
-    <input [(ngModel)]="password" type="password" /><br />
+  <label for="login">Login : </label>
+  <input [(ngModel)]="login" /><br />
 
-    <br />
-    <button (click)="connexion()">Connexion</button>
+  <label for="password">Password : </label>
+  <input [(ngModel)]="password" type="password" /><br />
+
+  <br />
+  <button (click)="connexion()">Connexion</button>
 </div>
 
 <div *ngIf="erreurConnexion" class="erreur-connexion">

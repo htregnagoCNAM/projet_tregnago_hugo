@@ -12,7 +12,7 @@ import { tap } from 'rxjs/operators';
 @Injectable()
 export class ApiHttpInterceptor implements HttpInterceptor {
   jwtToken: String = '';
-  constructor() {}
+  constructor() { }
 
   intercept(
     req: HttpRequest<any>,
@@ -22,7 +22,6 @@ export class ApiHttpInterceptor implements HttpInterceptor {
       req = req.clone({
         setHeaders: { Authorization: `Bearer ${this.jwtToken}` },
       });
-      //console.log('Bearer renvoyé : ' + this.jwtToken);
     }
 
     return next.handle(req).pipe(
@@ -34,7 +33,6 @@ export class ApiHttpInterceptor implements HttpInterceptor {
             tab = enteteAuthorization.split(/Bearer\s+(.*)$/i);
             if (tab.length > 1) {
               this.jwtToken = tab[1];
-              //console.log('Bearer récupéré : ' + this.jwtToken);
             }
           }
         }

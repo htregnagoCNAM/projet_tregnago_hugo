@@ -1,12 +1,10 @@
-<!-- panier.component.html -->
-
 <h2>Panier</h2>
 
 <div *ngFor="let produit of contenuPanier">
-  <p>
-    {{ produit.nom }} - {{ produit.quantite }} x {{ produit.prix | currency: 'EUR':'symbol':'1.2-2' }}
-    <button (click)="enleverProduit(produit)">Enlever</button>
-  </p>
+    <p>
+        {{ produit.nom }} - {{ produit.quantite }} x {{ produit.prix | currency: 'EUR':'symbol':'1.2-2' }}
+        <button (click)="enleverProduit(produit)">Enlever</button>
+    </p>
 </div>
 
 <p>Total : {{ montantTotal | currency: 'EUR':'symbol':'1.2-2' }}</p>

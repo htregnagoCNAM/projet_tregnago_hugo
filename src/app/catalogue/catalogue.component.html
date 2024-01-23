@@ -1,16 +1,13 @@
-<!-- catalogue.component.html -->
-
 <div>
     <input [(ngModel)]="filtre" placeholder="Filtrer par nom" (input)="getProduits(filtre)" />
-  </div>
-  
-  <div class="produits">
+</div>
+
+<div class="produits">
     <div *ngFor="let produit of produits" class="produit">
-      <img [src]="getImageUrl(produit.image)" alt="{{ produit.nom }}" />
-      <h3>{{ produit.nom }}</h3>
-      <p>{{ produit.description }}</p>
-      <p>{{ produit.prix | currency: 'EUR':'symbol':'1.2-2' }}</p>
-      <button (click)="ajouterAuPanier(produit)">Ajouter au panier</button>
+        <img [src]="getImageUrl(produit.image)" alt="{{ produit.nom }}" />
+        <h3>{{ produit.nom }}</h3>
+        <p>{{ produit.description }}</p>
+        <p>{{ produit.prix | currency: 'EUR':'symbol':'1.2-2' }}</p>
+        <button (click)="ajouterAuPanier(produit)">Ajouter au panier</button>
     </div>
-  </div>
-  
+</div>

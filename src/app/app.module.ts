@@ -28,7 +28,7 @@ import { ApiHttpInterceptor } from './http-interceptor';
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: ApiHttpInterceptor, multi: true },
-    ApiService,AuthenticationService],
+    ApiService, AuthenticationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

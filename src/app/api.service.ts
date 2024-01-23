@@ -8,7 +8,7 @@ import { environment } from '../environments/environment';
 
 @Injectable()
 export class ApiService {
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   public loginClient(login: string, password: string): Observable<Client> {
     let data: String;
@@ -27,24 +27,23 @@ export class ApiService {
 
   public inscriptionClient(nouveauClient: Client): Observable<any> {
     console.log('Données d\'inscription envoyées :', nouveauClient);
-    // Vous pouvez ajuster le type de retour (Observable<any>) en fonction de la structure de votre réponse du backend
     let httpOptions = {
       headers: new HttpHeaders({
-        'Content-Type': 'application/x-www-form-urlencoded', // Utilisation de JSON pour l'inscription
+        'Content-Type': 'application/x-www-form-urlencoded',
       }),
     };
 
     let data: String;
     data = 'nom=' + nouveauClient.nom +
-    '&prenom=' + nouveauClient.prenom +
-    '&adresse=' + nouveauClient.adresse +
-    '&codePostal=' + nouveauClient.codePostal +
-    '&ville=' + nouveauClient.ville +
-    '&email=' + nouveauClient.email +
-    '&sexe=' + nouveauClient.sexe +
-    '&login=' + nouveauClient.login +
-    '&password=' + nouveauClient.password +
-    '&telephone=' + nouveauClient.telephone;
+      '&prenom=' + nouveauClient.prenom +
+      '&adresse=' + nouveauClient.adresse +
+      '&codePostal=' + nouveauClient.codePostal +
+      '&ville=' + nouveauClient.ville +
+      '&email=' + nouveauClient.email +
+      '&sexe=' + nouveauClient.sexe +
+      '&login=' + nouveauClient.login +
+      '&password=' + nouveauClient.password +
+      '&telephone=' + nouveauClient.telephone;
 
     return this.http.post<any>(
       environment.backendInscriptionClient,

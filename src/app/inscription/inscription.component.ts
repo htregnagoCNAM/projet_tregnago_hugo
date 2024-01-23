@@ -1,4 +1,3 @@
-// inscription.component.ts
 import { Component } from '@angular/core';
 import { ApiService } from '../api.service';
 import { Client } from '../models/client';
@@ -13,7 +12,7 @@ export class InscriptionComponent {
   inscriptionReussie: boolean = false;
   erreurInscription: string = '';
 
-  constructor(private apiService: ApiService) {}
+  constructor(private apiService: ApiService) { }
 
   inscription() {
     this.apiService.inscriptionClient(this.nouveauClient).subscribe(
