@@ -54,7 +54,8 @@ export class ApiService {
   }
 
   public getProduits(filtre: string): Observable<any> {
-    return this.http.get<Produit[]>(`${environment.backendSearchCatalogue}${filtre}`);
+    const url = filtre ? `${environment.backendSearchCatalogue}${filtre}` : `${environment.backendFullCatalogue}`;
+    return this.http.get<Produit[]>(url);
   }
-  
+
 }
