@@ -1,5 +1,9 @@
 <div *ngIf="!inscriptionReussie">
     <form>
+
+      <label for="login">Login : </label>
+      <input [(ngModel)]="nouveauClient.login" name="login" required pattern="[a-zA-Z0-9]{1,20}" /><br />
+
       <label for="nom">Nom : </label>
       <input [(ngModel)]="nouveauClient.nom" name="nom" required /><br />
   

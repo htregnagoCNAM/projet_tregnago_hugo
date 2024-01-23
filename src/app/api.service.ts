@@ -30,16 +30,29 @@ export class ApiService {
   }
 
   public inscriptionClient(nouveauClient: Client): Observable<any> {
+    console.log('Données d\'inscription envoyées :', nouveauClient);
     // Vous pouvez ajuster le type de retour (Observable<any>) en fonction de la structure de votre réponse du backend
     let httpOptions = {
       headers: new HttpHeaders({
-        'Content-Type': 'application/json', // Utilisation de JSON pour l'inscription
+        'Content-Type': 'application/x-www-form-urlencoded', // Utilisation de JSON pour l'inscription
       }),
     };
 
+    let data: String;
+    data = 'nom=' + nouveauClient.nom +
+    '&prenom=' + nouveauClient.prenom +
+    '&adresse=' + nouveauClient.adresse +
+    '&codePostal=' + nouveauClient.codePostal +
+    '&ville=' + nouveauClient.ville +
+    '&email=' + nouveauClient.email +
+    '&sexe=' + nouveauClient.sexe +
+    '&login=' + nouveauClient.login +
+    '&password=' + nouveauClient.password +
+    '&telephone=' + nouveauClient.telephone;
+
     return this.http.post<any>(
       environment.backendInscriptionClient,
-      nouveauClient,
+      data,
       httpOptions
     );
   }
