@@ -9,6 +9,7 @@ import { CatalogueComponent } from './catalogue/catalogue.component';
 import { PanierComponent } from './panier/panier.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ApiService } from './api.service';
+import { AuthenticationService } from './authentication.service';
 import { ApiHttpInterceptor } from './http-interceptor';
 
 @NgModule({
@@ -27,7 +28,7 @@ import { ApiHttpInterceptor } from './http-interceptor';
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: ApiHttpInterceptor, multi: true },
-    ApiService,],
+    ApiService,AuthenticationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

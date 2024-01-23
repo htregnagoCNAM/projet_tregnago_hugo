@@ -10,10 +10,6 @@ import { environment } from '../environments/environment';
 export class ApiService {
   constructor(private http: HttpClient) {}
 
-  public getHello(name: string): Observable<any> {
-    return this.http.get<any>(environment.backendHello + '/' + name);
-  }
-
   public loginClient(login: string, password: string): Observable<Client> {
     let data: String;
     let httpOptions = {
