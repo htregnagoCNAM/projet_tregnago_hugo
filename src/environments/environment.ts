@@ -4,5 +4,6 @@ export const environment = {
     backendLoginClient: 'https://projet-web-hugo-tregnago.onrender.com/api/utilisateur/login',
     backendCatalogue: 'https://projet-web-hugo-tregnago.onrender.com/api/catalogue',
     backendSearchCatalogue: 'https://projet-web-hugo-tregnago.onrender.com/api/catalogue/',
+    backendInscriptionClient: 'https://projet-web-hugo-tregnago.onrender.com/api/utilisateur/inscription',
   };
   

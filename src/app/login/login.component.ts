@@ -27,6 +27,7 @@ export class LoginComponent {
       },
       (error) => {
         this.erreurConnexion = 'Échec de la connexion. Veuillez vérifier vos identifiants.';
+        this.cnx = false;
         console.error('Erreur lors de la connexion', error);
       }
     );

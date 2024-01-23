@@ -7,5 +7,6 @@ export class Client {
     email: string = '';
     sexe: string = '';
     telephone: string = '';
+    password: string = '';
   }
   

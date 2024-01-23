@@ -29,6 +29,21 @@ export class ApiService {
     );
   }
 
+  public inscriptionClient(nouveauClient: Client): Observable<any> {
+    // Vous pouvez ajuster le type de retour (Observable<any>) en fonction de la structure de votre réponse du backend
+    let httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json', // Utilisation de JSON pour l'inscription
+      }),
+    };
+
+    return this.http.post<any>(
+      environment.backendInscriptionClient,
+      nouveauClient,
+      httpOptions
+    );
+  }
+
   public getCatalogue(): Observable<Produit[]> {
     return this.http.get<Produit[]>(environment.backendCatalogue);
   }

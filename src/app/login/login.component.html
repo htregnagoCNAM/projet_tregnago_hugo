@@ -1,17 +1,26 @@
-<label for="login">login (hugo) : </label>
-<input [(ngModel)]="login" /><br />
+<div *ngIf="!cnx">
+    <label for="login">login (hugo) : </label>
+    <input [(ngModel)]="login" /><br />
+    
+    <label for="password">password (gohu) : </label>
+    <input [(ngModel)]="password" type="password" /><br />
 
-<label for="password">password (gohu) : </label>
-<input [(ngModel)]="password" type="password" /><br />
-
-<br />
-<button (click)="connexion()">Connexion</button>
+    <br />
+    <button (click)="connexion()">Connexion</button>
+</div>
 
 <div *ngIf="erreurConnexion" class="erreur-connexion">
   {{ erreurConnexion }}
 </div>
 
 <div *ngIf="cnx">
+  <h3>Connexion réussie !</h3>
   <p>Nom: {{ client.nom }}</p>
   <p>Prénom: {{ client.prenom }}</p>
+  <p>Adresse: {{ client.adresse }}</p>
+  <p>Code postal: {{ client.codePostal }}</p>
+  <p>Ville: {{ client.ville }}</p>
+  <p>Email: {{ client.email }}</p>
+  <p>Sexe: {{ client.sexe }}</p>
+  <p>Telephone: {{ client.telephone }}</p>
 </div>
