@@ -1,8 +1,8 @@
 export class Produit {
-    ref: string = '';
-    titre: string = '';
+    id: number = 0;
+    nom: string = '';
     prix: number = 0;
-    desc: string = '';
+    description: string = '';
     image: string = '';
   }
   

@@ -53,11 +53,8 @@ export class ApiService {
     );
   }
 
-  public getCatalogue(): Observable<Produit[]> {
-    return this.http.get<Produit[]>(environment.backendCatalogue);
-  }
-
-  public getSearchCatalogue(filtre: string): Observable<Produit[]> {
+  public getProduits(filtre: string): Observable<any> {
     return this.http.get<Produit[]>(`${environment.backendSearchCatalogue}${filtre}`);
   }
+  
 }
