@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ApiService } from '../api.service';
+import { Client } from '../models/client';
 
 @Component({
   selector: 'app-login',
@@ -10,18 +11,24 @@ export class LoginComponent {
   login: string = '';
   password: string = '';
 
-  nom: string = '';
-  prenom: string = '';
-  cnx: boolean = false;
+  client: Client = new Client();
 
-  constructor(private apiService: ApiService) {
-  }
+  cnx: boolean = false;
+  erreurConnexion: string = '';
+
+  constructor(private apiService: ApiService) {}
 
   connexion() {
-    this.apiService.loginClient(this.login, this.password).subscribe((c) => {
-      this.nom = c.nom;
-      this.prenom = c.prenom;
-      this.cnx = true;
-    });
+    this.apiService.loginClient(this.login, this.password).subscribe(
+      (c) => {
+        this.client = c;
+        this.cnx = true;
+        this.erreurConnexion = '';
+      },
+      (error) => {
+        this.erreurConnexion = 'Échec de la connexion. Veuillez vérifier vos identifiants.';
+        console.error('Erreur lors de la connexion', error);
+      }
+    );
   }
 }

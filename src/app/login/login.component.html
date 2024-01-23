@@ -1,5 +1,17 @@
-<label for="login">login (hugo) : </label><input [(ngModel)]="login" /><br />
-<label for="password">password (gohu) : </label
-><input [(ngModel)]="password" type="password" /><br />
+<label for="login">login (hugo) : </label>
+<input [(ngModel)]="login" /><br />
+
+<label for="password">password (gohu) : </label>
+<input [(ngModel)]="password" type="password" /><br />
+
 <br />
 <button (click)="connexion()">Connexion</button>
+
+<div *ngIf="erreurConnexion" class="erreur-connexion">
+  {{ erreurConnexion }}
+</div>
+
+<div *ngIf="cnx">
+  <p>Nom: {{ client.nom }}</p>
+  <p>Prénom: {{ client.prenom }}</p>
+</div>
