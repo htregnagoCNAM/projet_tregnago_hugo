@@ -21,7 +21,7 @@ export class InscriptionComponent {
         this.erreurInscription = '';
       },
       (error) => {
-        this.erreurInscription = 'Échec de l\'inscription. Veuillez réessayer.';
+        this.erreurInscription = 'Échec de l\'inscription. Veuillez vérifier les champs que vous avez renseigné.';
         this.inscriptionReussie = false;
         console.error('Erreur lors de l\'inscription', error);
       }

@@ -6,6 +6,7 @@
     <ul>
       <li><a routerLink="/login">Login</a></li>
       <li><a routerLink="/inscription">Inscription</a></li>
+      <li *ngIf="isUserLoggedIn"><a routerLink="/profil">Profil</a></li>
       <li *ngIf="isUserLoggedIn"><a routerLink="/catalogue">Catalogue</a></li>
       <li *ngIf="isUserLoggedIn"><a routerLink="/panier">Panier</a></li>
     </ul>

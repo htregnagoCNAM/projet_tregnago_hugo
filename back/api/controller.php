@@ -82,16 +82,22 @@ function optionsUtilisateur(Request $request, Response $response, $args)
 	return addHeaders($response);
 }
 
-function getUtilisateur(Request $request, Response $response, $args)
+function getProfil(Request $request, Response $response, $args)
 {
 	global $entityManager;
 
-	$payload = getJWTToken($request);
-	$login  = $payload->userid;
+	$login = $args['login'] ?? "";
+
+	if (!preg_match("/^[a-zA-Z0-9\-_]+$/", $login)) {
+		$response = $response->withStatus(400);
+		return addHeaders($response);
+	}
 
 	$utilisateurRepository = $entityManager->getRepository('Utilisateurs');
-	$utilisateur = $utilisateurRepository->findOneBy(array('login' => $login));
+	$utilisateur = $utilisateurRepository->findOneBy(['login' => $login]);
+
 	if ($utilisateur) {
+		$response = addHeaders($response);
 		$data = array(
 			'nom' => $utilisateur->getNom(),
 			'prenom' => $utilisateur->getPrenom(),
@@ -102,8 +108,6 @@ function getUtilisateur(Request $request, Response $response, $args)
 			'sexe' => $utilisateur->getSexe(),
 			'telephone' => $utilisateur->getTelephone()
 		);
-		$response = addHeaders($response);
-		$response = createJwT($response);
 		$response->getBody()->write(json_encode($data));
 	} else {
 		$response = $response->withStatus(404);
@@ -120,10 +124,10 @@ function postLogin(Request $request, Response $response, $args)
 	$login = $body['login'] ?? "";
 	$pass = $body['password'] ?? "";
 
-	if (!preg_match("/[a-zA-Z0-9]{1,20}/", $login)) {
+	if (!preg_match("/^[a-zA-Z0-9\-_]+$/", $login)) {
 		$err = true;
 	}
-	if (!preg_match("/[a-zA-Z0-9]{1,20}/", $pass)) {
+	if (!preg_match("/^[a-zA-Z0-9!@#$%^&*()\-_=+{};:,<.>]+$/", $pass)) {
 		$err = true;
 	}
 	if (!$err) {
@@ -176,15 +180,49 @@ function postInscription(Request $request, Response $response, $args)
 	$errorDetails['request'] = $request->getParsedBody();
 	$errorDetails['body'] = $body;
 
-	if (!preg_match("/[a-zA-Z0-9]{1,20}/", $login)) {
+	// Vérification pour le nom et prénom
+	if (!preg_match("/^[a-zA-ZÀ-ÿ\-' ]+$/", $nom)) {
+		$err = true;
+		$errorDetails['nom'] = 'Le champ "nom" est invalide.';
+	}
+
+	if (!preg_match("/^[a-zA-ZÀ-ÿ\-' ]+$/", $prenom)) {
+		$err = true;
+		$errorDetails['prenom'] = 'Le champ "prénom" est invalide.';
+	}
+
+	// Vérification pour le code postal
+	if (!preg_match("/^\d{5}$/", $codePostal)) {
+		$err = true;
+		$errorDetails['codePostal'] = 'Le champ "code postal" est invalide.';
+	}
+
+	// Vérification pour la ville
+	if (!preg_match("/^[a-zA-ZÀ-ÿ\-' ]+$/", $ville)) {
+		$err = true;
+		$errorDetails['ville'] = 'Le champ "ville" est invalide.';
+	}
+
+	// Vérification pour le sexe
+	if (!preg_match("/^[MF]$/", $sexe)) {
+		$err = true;
+		$errorDetails['sexe'] = 'Le champ "sexe" est invalide.';
+	}
+
+	// Vérification pour le mot de passe et login
+	if (!preg_match("/^[a-zA-Z0-9\-_]+$/", $login)) {
 		$err = true;
 		$errorDetails['login'] = 'Le champ "login" est invalide.';
-		$errorDetails['invalidLogin'] = $login;
 	}
+
+	if (!preg_match("/^[a-zA-Z0-9!@#$%^&*()\-_=+{};:,<.>]+$/", $password)) {
+		$err = true;
+		$errorDetails['password'] = 'Le champ "password" est invalide.';
+	}
+
 	if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
 		$err = true;
 		$errorDetails['email'] = 'Le champ "email" est invalide.';
-		$errorDetails['invalidEmail'] = $email;
 	}
 
 	if (!$err) {

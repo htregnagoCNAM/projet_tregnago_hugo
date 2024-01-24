@@ -20,20 +20,20 @@ export class LoginComponent {
   constructor(private apiService: ApiService,
     private authService: AuthenticationService) { }
 
-  connexion() {
-    this.apiService.loginClient(this.login, this.password).subscribe(
-      (c) => {
-        this.client = c;
-        this.cnx = true;
-        this.erreurConnexion = '';
-        this.authService.updateLoginStatus(true);
-      },
-      (error) => {
-        this.erreurConnexion = 'Échec de la connexion. Veuillez vérifier vos identifiants.';
-        this.cnx = false;
-        console.error('Erreur lors de la connexion', error);
-        this.authService.updateLoginStatus(false);
-      }
-    );
-  }
+    connexion() {
+      this.apiService.loginClient(this.login, this.password).subscribe(
+        (c) => {
+          this.client = c;
+          this.cnx = true;
+          this.erreurConnexion = '';
+          this.authService.updateLoginStatus(true, this.login);
+        },
+        (error) => {
+          this.erreurConnexion = 'Échec de la connexion. Veuillez vérifier vos identifiants.';
+          this.cnx = false;
+          console.error('Erreur lors de la connexion', error);
+          this.authService.updateLoginStatus(false);
+        }
+      );
+    }
 }

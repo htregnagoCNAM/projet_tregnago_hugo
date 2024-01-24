@@ -52,6 +52,11 @@ export class ApiService {
     );
   }
 
+  public getProfil(login: string): Observable<Client> {
+    const url = `${environment.backendProfilClient}${login}`;
+    return this.http.get<Client>(url);
+  }
+
   public getProduits(filtre: string): Observable<any> {
     const url = filtre ? `${environment.backendSearchCatalogue}${filtre}` : `${environment.backendFullCatalogue}`;
     return this.http.get<Produit[]>(url);

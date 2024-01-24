@@ -11,6 +11,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ApiService } from './api.service';
 import { AuthenticationService } from './authentication.service';
 import { ApiHttpInterceptor } from './http-interceptor';
+import { ProfilComponent } from './profil/profil.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { ApiHttpInterceptor } from './http-interceptor';
     LoginComponent,
     InscriptionComponent,
     CatalogueComponent,
-    PanierComponent
+    PanierComponent,
+    ProfilComponent
   ],
   imports: [
     BrowserModule,

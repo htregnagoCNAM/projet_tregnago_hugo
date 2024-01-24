@@ -11,7 +11,7 @@ $app->post('/api/utilisateur/login', 'postLogin');
 $app->post('/api/utilisateur/inscription', 'postInscription');
 
 // API Nécessitant un Jwt valide
-$app->get('/api/utilisateur', 'getUtilisateur');
+$app->get('/api/profil/{login}', 'getProfil');
 
 // API Nécessitant un Jwt valide
 $app->get('/api/fullCatalogue', 'getFullCatalogue');

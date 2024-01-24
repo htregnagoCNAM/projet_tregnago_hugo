@@ -7,8 +7,14 @@ import { BehaviorSubject } from 'rxjs';
 export class AuthenticationService {
   private isLoggedInSubject = new BehaviorSubject<boolean>(false);
   isLoggedIn$ = this.isLoggedInSubject.asObservable();
+  currentLogin: string = '';
 
-  updateLoginStatus(isLoggedIn: boolean) {
+  updateLoginStatus(isLoggedIn: boolean, login: string = '') {
     this.isLoggedInSubject.next(isLoggedIn);
+    if (isLoggedIn) {
+      this.currentLogin = login;
+    } else {
+      this.currentLogin = '';
+    }
   }
 }
